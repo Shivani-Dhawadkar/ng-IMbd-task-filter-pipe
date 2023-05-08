@@ -1,0 +1,70 @@
+
+    
+<body>
+    <h2 class="bg-warning text-white p-4 mb-4 text-center">
+        IMDB movie Gallery
+    </h2>
+   
+  <div class="form-group col-md-6 offset-md-3">
+    <label for="search"></label>
+      <div class="inline">
+        <div class="input-icons">
+             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+            <input type="text" class="form-control" name="" placeholder="search movie"[(ngModel)]="searchmovie" id="" >
+           
+        </div>
+      </div>
+ </div>
+ <!-- <div class="input-group col-md-3 offset-md-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+      <input type="radio" aria-label="Radio button for following text input">
+      </div>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="rating" disabled *ngFor="let item of getmovieArray |movieCard:searchmovie">
+  </div> -->
+  
+      
+<div class="container fluid">
+    
+       
+            <!-- <div class=" input-group offset-md-3 col-md-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text "   >
+                  <input type="checkbox" aria-label="Checkbox for following text input text input" (click)="onclickradio()">
+                  </div>
+                </div>
+                <label for="Rating5" class="text-white">5+ rating</label>
+                <input type="text" class="form-control" id="Rating5" aria-label="Text input with checkbox" placeholder="5+ Rating"  [(ngModel)]="Rating5" [disabled]="Rating5" *ngfor="let rate of getmovieArray|rating :Rating5">
+              </div>  -->
+              <div class="row">
+            <div class="col-md-3" *ngFor="let item of getmovieArray|movieCard:searchmovie"
+            >
+                <div class="card mb-4 " >
+                    
+                        <figure class="movieCard" >
+                            <img src="{{getImgUrl}}{{item.backdrop_path}}" alt="">
+                            <figcaption class="text-white bg-dark">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h3>{{item.title}}</h3>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="rating">{{item.vote_average}}</span>
+                                    </div>
+                                </div>
+                            </figcaption>
+                            <div class="overview bg-white p-4">
+                                <h4>Overview</h4>
+                                {{item.overview}}
+                            </div>
+                        </figure>
+                   
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
